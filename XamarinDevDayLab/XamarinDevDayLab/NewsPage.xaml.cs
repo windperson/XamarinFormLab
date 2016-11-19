@@ -13,6 +13,12 @@ namespace XamarinDevDayLab
         public NewsPage()
         {
             InitializeComponent();
+            this.queryBtn.Clicked += Querybtn_Clicked;
+        }
+
+        private void Querybtn_Clicked(object sender, EventArgs e)
+        {
+            this.DisplayAlert("Message", this.queryDate.Date.ToString(), "OK");
         }
     }
 }
