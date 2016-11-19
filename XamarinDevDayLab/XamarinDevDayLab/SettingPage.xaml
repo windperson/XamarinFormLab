@@ -2,5 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinDevDayLab.SettingPage">
-  <Label Text="Setting Page" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout>
+    <Label Text="Setting Page" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text="GetOrientation" x:Name="orientationBtn" HorizontalOptions="FillAndExpand" />
+  </StackLayout>
+
 </ContentPage>
