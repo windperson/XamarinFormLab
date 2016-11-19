@@ -14,6 +14,17 @@ namespace XamarinDevDayLab
             InitializeComponent();
             this.AgeInput.ValueChanged += AgeInput_ValueChanged;
             this.SaveBtn.Clicked += SaveBtn_Clicked;
+            this.DialBtn.Clicked += DialBtn_Clicked;
+        }
+
+        private async void DialBtn_Clicked(object sender, EventArgs e)
+        {
+            var dialStr = this.DialInput.Text;
+            if(!String.IsNullOrEmpty(dialStr) 
+                && await this.DisplayAlert("Dial Out","Call out to: \""+ this.DialInput.Text + "\" ?","YES","NO" ))
+            {
+                Device.OpenUri(new Uri("tel://"+dialStr));
+            }
         }
 
         private void SaveBtn_Clicked(object sender, EventArgs e)

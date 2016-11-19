@@ -25,11 +25,12 @@
       <StackLayout Orientation="Horizontal" Padding="5,15,0,5">
         <Label FontSize="14" Text="Phone No:" TextColor="White"
         HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
-        <Entry HorizontalOptions="FillAndExpand" Text="886-12345678" TextColor="White" BackgroundColor="Maroon" />
+        <Entry x:Name="DialInput" HorizontalOptions="FillAndExpand" Text="886-12345678" TextColor="White" BackgroundColor="Maroon" />
       </StackLayout>
 
       <StackLayout Orientation="Vertical" Padding="5,15,0,5">
         <Button Text="Save" x:Name="SaveBtn" HorizontalOptions="FillAndExpand" />
+        <Button Text="Dial" x:Name="DialBtn" HorizontalOptions="FillAndExpand" />
       </StackLayout>
       
     </StackLayout>
