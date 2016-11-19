@@ -1,42 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:local="clr-namespace:XamarinDevDayLab"
-              x:Class="XamarinDevDayLab.MainPage">
-
-  <CarouselPage.ItemTemplate>
-    <DataTemplate>
-      <ContentPage>
-        <ScrollView>
-          <StackLayout Spacing="0" Padding="5,5,0,0" BackgroundColor="Maroon">
-
-            <Image Source="picon.png" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" VerticalOptions="Start"/>
-
-            <StackLayout HeightRequest="100" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Spacing="20" BackgroundColor="Maroon">
-              <Label Text="User Name" FontSize="28" HorizontalOptions="Center"
-                VerticalOptions="Center" FontAttributes="Bold" />
-              <Label Text="{Binding Name}" TextColor="White"
-                BackgroundColor="Maroon" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Padding="5,15,0,5">
-              <Label FontSize="14" Text="Age:" TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
-              <Label Text="{Binding Age}" FontSize="14" TextColor="White"/>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Padding="5,15,0,5">
-              <Label FontSize="14" Text="Phone No:" TextColor="White"
-              HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="100" />
-              <Label Text="{Binding Phone}" HorizontalOptions="FillAndExpand"  TextColor="White" BackgroundColor="Maroon" />
-            </StackLayout>
-            
-          </StackLayout>
-        </ScrollView>
-      </ContentPage>
-      
-    </DataTemplate>
-    
-  </CarouselPage.ItemTemplate>
+              x:Class="XamarinDevDayLab.MainPage"
+              Title="Front Page">
   
-  
-</CarouselPage>
+</MasterDetailPage>

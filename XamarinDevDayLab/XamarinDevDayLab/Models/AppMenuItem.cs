@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace XamarinDevDayLab.Models
 {
-    public class Employee
+    public class AppMenuItem
     {
         public String Name { get; set; }
-        public String Title { get; set; }
+        public String Icon { get; set; }
+        public int No { get; set; }
+
     }
 }
