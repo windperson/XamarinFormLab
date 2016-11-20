@@ -16,9 +16,17 @@ namespace XamarinDevDayLab
         public SettingPage()
         {
             InitializeComponent();
+            
             this.orientationBtn.Clicked += OrientationBtn_Clicked;
             this.cameraBtn.Clicked += async (object sender, EventArgs e) =>
             {
+                //fix for running on UWP, see http://stackoverflow.com/a/40493013/1075882
+                var libStatus = await CrossMedia.Current.Initialize();
+                if (!libStatus)
+                {
+                    DisplayAlert("lib init", "lib init error", "OK");
+                    return;
+                }
                 if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 {
                     DisplayAlert("No Camera", "No Camera available", "OK");
