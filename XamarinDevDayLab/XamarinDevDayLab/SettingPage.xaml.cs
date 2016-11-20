@@ -17,7 +17,34 @@ namespace XamarinDevDayLab
         {
             InitializeComponent();
             this.orientationBtn.Clicked += OrientationBtn_Clicked;
-            this.cameraBtn.Clicked += CameraBtn_Clicked;
+            this.cameraBtn.Clicked += async (object sender, EventArgs e) =>
+            {
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    DisplayAlert("No Camera", "No Camera available", "OK");
+                    return;
+                }
+                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "Sample",
+                    Name = "test.jpg"
+                });
+
+                if (file == null)
+                {
+                    //TODO: should notify that take "no" picture to user?
+                    return;
+                }
+                DisplayAlert("Pic file location", file.Path, "OK");
+
+                this.myImg.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
+            };
+
         }
 
         private void OrientationBtn_Clicked(object sender, EventArgs e)
@@ -35,35 +62,6 @@ namespace XamarinDevDayLab
                     DisplayAlert("Message", "Portrait!", "OK");
                     break;
             }
-
-        }
-
-        private async void CameraBtn_Clicked(object sender, EventArgs e)
-        {
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                DisplayAlert("No Camera", "No Camera available", "OK");
-                return;
-            }
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                Directory = "Sample",
-                Name = "test.jpg"
-            });
-
-            if (file == null)
-            {
-                //TODO: should notify that take "no" picture to user?
-                return;
-            }
-            DisplayAlert("Pic file location", file.Path, "OK");
-
-            this.myImg.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
 
         }
     }
