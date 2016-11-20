@@ -5,6 +5,10 @@
   <StackLayout>
     <Label Text="Setting Page" VerticalOptions="Center" HorizontalOptions="Center" />
     <Button Text="GetOrientation" x:Name="orientationBtn" HorizontalOptions="FillAndExpand" />
+    
+    <Button Text="Camera" x:Name="cameraBtn" HorizontalOptions="FillAndExpand" />
+    <Image x:Name="myImg"></Image>
+
   </StackLayout>
 
 </ContentPage>
