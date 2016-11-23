@@ -6,6 +6,7 @@
   <StackLayout>
     <DatePicker x:Name="queryDate" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
       <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+			<!--
       <DatePicker.MinimumDate>
         <sys:DateTime x:FactoryMethod="Parse">
           <x:Arguments>
@@ -20,6 +21,7 @@
           </x:Arguments>
         </sys:DateTime>
       </DatePicker.MaximumDate>
+			-->
     </DatePicker>
     <Button Text="Query" x:Name="queryBtn" HorizontalOptions="FillAndExpand" />
   </StackLayout>
