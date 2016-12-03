@@ -57,7 +57,8 @@ namespace XamarinDevDayLab
 
         private void OrientationBtn_Clicked(object sender, EventArgs e)
         {
-            var orientation = DependencyService.Get<IDeviceOrientation>().GetOrientation();
+			var orientService = DependencyService.Get<IDeviceOrientation>();
+			var orientation = orientService == null ? DeviceOrientations.Undefined : orientService.GetOrientation();
             switch (orientation)
             {
                 case DeviceOrientations.Undefined:
